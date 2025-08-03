@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thaynara Dutra | Psicóloga Infantil</title>
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Thaynara Dutra - Psicóloga Infantil. Acolhimento emocional para crianças e famílias. Agende sua consulta!">
+    <meta property="og:title" content="Thaynara Dutra | Psicóloga Infantil">
+    <meta property="og:description" content="Cuidando do emocional das crianças com ciência e amor.">
+    <meta property="og:image" content="https://celionorajr.github.io/link-in-bio/assets/thaynara-perfil.png">
+    <meta property="og:url" content="https://celionorajr.github.io/link-in-bio">
+    <meta name="theme-color" content="#8a4fff">
     <!-- Fontes e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Baloo+2:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
     <style>
         :root {
             --roxo-principal: #8a4fff;
@@ -33,6 +42,11 @@
             line-height: 1.6;
             padding: 0;
             overflow-x: hidden;
+            background-image: url('assets/bg-formas.png');
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-size: 300px;
+            opacity: 0.9;
         }
         .container {
             max-width: 500px;
@@ -175,6 +189,10 @@
 
         /* Responsivo */
         @media (max-width: 480px) {
+            body {
+                background-size: 150px;
+                opacity: 0.7;
+            }
             .container {
                 padding: 20px 15px;
             }
@@ -189,6 +207,11 @@
     </style>
 </head>
 <body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <div class="container">
         <!-- Bolhas decorativas -->
         <div class="bolha bolha-1"></div>
@@ -196,7 +219,7 @@
 
         <!-- Perfil -->
         <div class="profile">
-            <img src="thaynara-perfil.png" alt="Thaynara Dutra" class="profile-img floating">
+            <img src="assets/thaynara-perfil.png" alt="Thaynara Dutra" class="profile-img floating">
             <h1>Thaynara Dutra</h1>
             <p class="bio">Psicóloga apaixonada por cuidar do emocional das crianças e das famílias.</p>
         </div>
@@ -228,25 +251,26 @@
         <p class="footer">"Cuidar da mente infantil é plantar sementes para um futuro emocional saudável."</p>
     </div>
 
+    <!-- Botão "Voltar ao Topo" -->
+    <button id="back-to-top" title="Voltar ao topo">↑</button>
+
     <!-- Scripts -->
     <script>
-        // Efeito de digitação na bio (opcional)
-        const bio = document.querySelector('.bio');
-        if (bio) {
-            const textoOriginal = bio.textContent;
-            bio.textContent = '';
-            let i = 0;
-            const digitar = () => {
-                if (i < textoOriginal.length) {
-                    bio.textContent += textoOriginal.charAt(i);
-                    i++;
-                    setTimeout(digitar, 50);
-                }
-            };
-            setTimeout(digitar, 1000);
-        }
+        // Loader
+        window.addEventListener('load', () => {
+            document.querySelector('.loader').classList.add('hidden');
+        });
 
-        // Animação ao rolar
+        // Botão "Voltar ao Topo"
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTopButton.classList.toggle('visible', window.scrollY > 300);
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Efeitos de animação
         document.querySelectorAll('.link-button, .specialty').forEach(item => {
             item.style.opacity = '0';
             item.style.transform = 'translateY(20px)';
