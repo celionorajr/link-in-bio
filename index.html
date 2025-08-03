@@ -4,120 +4,267 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thaynara Dutra | Psicóloga Infantil</title>
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --roxo-principal: #8a4fff;
+            --roxo-claro: #d0b3ff;
+            --degrade: linear-gradient(135deg, #8a4fff 0%, #5a2fc2 100%);
+            --branco: #ffffff;
+            --cinza-claro: #f8f5ff;
+            --texto: #4a4453;
+        }
+
         /* Reset e Estilos Globais */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
         }
         body {
-            background-color: #f9f5ff;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cinza-claro);
+            color: var(--texto);
             text-align: center;
-            padding: 20px;
             line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
         }
         .container {
             max-width: 500px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px 20px;
+            position: relative;
         }
 
-        /* Perfil */
-        .profile-img {
+        /* Efeito de Bolhas Decorativas */
+        .bolha {
+            position: absolute;
+            background-color: rgba(138, 79, 255, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .bolha-1 {
             width: 150px;
             height: 150px;
+            top: -50px;
+            left: -50px;
+        }
+        .bolha-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            right: -50px;
+        }
+
+        /* Cabeçalho */
+        .profile {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #ffb6e6;
-            margin: 20px auto;
+            border: 5px solid var(--branco);
+            box-shadow: 0 10px 30px rgba(138, 79, 255, 0.2);
+            margin: 0 auto 15px;
             display: block;
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
         }
         h1 {
-            color: #6a5acd;
-            margin-bottom: 10px;
-            font-size: 24px;
+            font-family: 'Baloo 2', cursive;
+            color: var(--roxo-principal);
+            margin-bottom: 8px;
+            font-size: 28px;
+            font-weight: 700;
         }
         .bio {
-            color: #666;
-            margin-bottom: 20px;
+            color: var(--texto);
+            margin-bottom: 25px;
             font-size: 16px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
+
+        /* Especialidades */
         .specialties {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            margin: 20px 0;
+            margin: 25px 0;
         }
         .specialty {
-            background-color: #e9d8fd;
-            color: #6a5acd;
-            padding: 8px 12px;
-            border-radius: 20px;
+            background-color: var(--branco);
+            color: var(--roxo-principal);
+            padding: 10px 15px;
+            border-radius: 30px;
             font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(138, 79, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         /* Botões */
+        .links {
+            margin: 30px 0;
+        }
         .link-button {
-            display: block;
-            background-color: #a78bfa;
-            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--degrade);
+            color: var(--branco);
             text-decoration: none;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 25px;
+            padding: 16px;
+            margin: 18px 0;
+            border-radius: 30px;
             font-weight: 600;
             transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(138, 79, 255, 0.3);
+            border: none;
+            font-size: 16px;
         }
         .link-button:hover {
-            background-color: #8b5cf6;
-            transform: scale(1.02);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(138, 79, 255, 0.4);
+        }
+        .link-button i {
+            font-size: 20px;
         }
 
         /* Rodapé */
         .footer {
-            margin-top: 30px;
-            color: #aaa;
+            margin-top: 40px;
+            color: var(--roxo-claro);
             font-size: 14px;
             font-style: italic;
+            position: relative;
+        }
+        .footer::before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--roxo-claro);
+            margin: 0 auto 15px;
+            opacity: 0.5;
+        }
+
+        /* Animação */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Responsivo */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+            h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Foto + Nome -->
-        <img src="thaynara-perfil.png" alt="Thaynara Dutra" class="profile-img">
-        <h1>Thaynara Dutra</h1>
-        <p class="bio">Psicóloga apaixonada por cuidar do emocional das crianças e das famílias.</p>
+        <!-- Bolhas decorativas -->
+        <div class="bolha bolha-1"></div>
+        <div class="bolha bolha-2"></div>
+
+        <!-- Perfil -->
+        <div class="profile">
+            <img src="thaynara-perfil.png" alt="Thaynara Dutra" class="profile-img floating">
+            <h1>Thaynara Dutra</h1>
+            <p class="bio">Psicóloga apaixonada por cuidar do emocional das crianças e das famílias.</p>
+        </div>
 
         <!-- Especialidades -->
         <div class="specialties">
-            <span class="specialty">🧠 Psicologia Infantil</span>
-            <span class="specialty">💬 Terapia do Comportamento</span>
-            <span class="specialty">❤️ Desenvolvimento Emocional</span>
+            <span class="specialty"><i class="fas fa-brain"></i> Psicologia Infantil</span>
+            <span class="specialty"><i class="fas fa-comment-dots"></i> Terapia do Comportamento</span>
+            <span class="specialty"><i class="fas fa-heart"></i> Desenvolvimento Emocional</span>
         </div>
 
         <!-- Botões -->
-        <a href="https://wa.me/98982671276" class="link-button">📞 Agende sua consulta</a>
-        <a href="#" class="link-button">🌐 Conheça meu trabalho</a>
-        <a href="https://instagram.com/SEUUSER" class="link-button">📸 Instagram profissional</a>
-        <a href="#" class="link-button">🧑‍⚕️ Sobre mim</a>
+        <div class="links">
+            <a href="https://wa.me/98982671276" class="link-button">
+                <i class="fab fa-whatsapp"></i> Agende sua consulta
+            </a>
+            <a href="#" class="link-button">
+                <i class="fas fa-globe"></i> Conheça meu trabalho
+            </a>
+            <a href="https://instagram.com/SEUUSER" class="link-button">
+                <i class="fab fa-instagram"></i> Instagram profissional
+            </a>
+            <a href="#" class="link-button">
+                <i class="fas fa-user-md"></i> Sobre mim
+            </a>
+        </div>
 
         <!-- Rodapé -->
         <p class="footer">"Cuidar da mente infantil é plantar sementes para um futuro emocional saudável."</p>
     </div>
 
-    <!-- Script Opcional (ex: contador de cliques) -->
+    <!-- Scripts -->
     <script>
-        document.querySelectorAll('.link-button').forEach(button => {
-            button.addEventListener('click', () => {
-                console.log(`Botão "${button.textContent}" clicado!`);
-                // Adicione aqui Google Analytics ou outras integrações
-            });
+        // Efeito de digitação na bio (opcional)
+        const bio = document.querySelector('.bio');
+        if (bio) {
+            const textoOriginal = bio.textContent;
+            bio.textContent = '';
+            let i = 0;
+            const digitar = () => {
+                if (i < textoOriginal.length) {
+                    bio.textContent += textoOriginal.charAt(i);
+                    i++;
+                    setTimeout(digitar, 50);
+                }
+            };
+            setTimeout(digitar, 1000);
+        }
+
+        // Animação ao rolar
+        document.querySelectorAll('.link-button, .specialty').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.6s ease';
         });
+
+        const animateOnScroll = () => {
+            document.querySelectorAll('.link-button, .specialty').forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < window.innerHeight - 100) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
 </html>
