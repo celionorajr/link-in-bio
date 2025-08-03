@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thainara Dutra | Psicóloga Infantil</title>
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: #f9f5ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Perfil */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffb6e6;
+            margin: 20px auto;
+            display: block;
+        }
+        h1 {
+            color: #6a5acd;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .bio {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .specialties {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .specialty {
+            background-color: #e9d8fd;
+            color: #6a5acd;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Botões */
+        .link-button {
+            display: block;
+            background-color: #a78bfa;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .link-button:hover {
+            background-color: #8b5cf6;
+            transform: scale(1.02);
+        }
+
+        /* Rodapé */
+        .footer {
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 14px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Foto + Nome -->
+        <img src="https://via.placeholder.com/150" alt="Thainara Dutra" class="profile-img">
+        <h1>Thainara Dutra</h1>
+        <p class="bio">Psicóloga apaixonada por cuidar do emocional das crianças e das famílias.</p>
+
+        <!-- Especialidades -->
+        <div class="specialties">
+            <span class="specialty">🧠 Psicologia Infantil</span>
+            <span class="specialty">💬 Terapia do Comportamento</span>
+            <span class="specialty">❤️ Desenvolvimento Emocional</span>
+        </div>
+
+        <!-- Botões -->
+        <a href="https://wa.me/SEUNUMERO" class="link-button">📞 Agende sua consulta</a>
+        <a href="#" class="link-button">🌐 Conheça meu trabalho</a>
+        <a href="https://instagram.com/SEUUSER" class="link-button">📸 Instagram profissional</a>
+        <a href="#" class="link-button">🧑‍⚕️ Sobre mim</a>
+
+        <!-- Rodapé -->
+        <p class="footer">"Cuidar da mente infantil é plantar sementes para um futuro emocional saudável."</p>
+    </div>
+
+    <!-- Script Opcional (ex: contador de cliques) -->
+    <script>
+        document.querySelectorAll('.link-button').forEach(button => {
+            button.addEventListener('click', () => {
+                console.log(`Botão "${button.textContent}" clicado!`);
+                // Adicione aqui Google Analytics ou outras integrações
+            });
+        });
+    </script>
+</body>
+</html>
